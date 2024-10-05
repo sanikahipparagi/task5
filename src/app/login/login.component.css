@@ -1,0 +1,197 @@
+/* Styling for the login page */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+}
+
+h1 {
+    text-align: center;
+    color: #a444d4;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 850px;  /* Increase width */
+    /* max-height: 700px; */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.left-side {
+    width: 50%;
+    background: url('https://img.freepik.com/free-vector/tablet-login-concept-illustration_114360-7863.jpg?t=st=1728014047~exp=1728017647~hmac=3e4bbe87bd8c73980b498696d138a318e8862245b92ae23075936d5c7eafb5b0&w=740') no-repeat center;
+    background-size: cover;
+}
+
+.right-side {
+    width: 50%;
+    padding: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button, .generate-otp {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+button:hover, .generate-otp:hover {
+    background-color: #0056b3;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.footer {
+    background-color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.otp-section {
+    margin-top: 20px;
+}
+
+.otp-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.otp-input {
+    width: 50px;
+    margin: 0 5px;  /* Add spacing between OTP inputs */
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.otp-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.otp-message {
+    color: green;
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack left and right sides */
+        max-width: 100%; /* Allow full width on mobile */
+    }
+
+    .left-side,
+    .right-side {
+        width: 100%; /* Take full width */
+        height: auto; /* Allow height to adjust automatically */
+    }
+
+    .right-side {
+        padding: 20px; /* Adjust padding */
+    }
+
+    h1 {
+        font-size: 24px; /* Smaller title on mobile */
+    }
+
+    input,
+    button,
+    .generate-otp {
+        font-size: 14px; /* Adjust font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .otp-input {
+        width: 40px; /* Smaller OTP inputs on mobile */
+    }
+
+    .otp-box {
+        flex-direction: row; /* Ensure OTP inputs stay in one line */
+        justify-content: space-between;
+    }
+    
+    /* Further adjustments for very small screens */
+    input {
+        font-size: 14px; /* Smaller input font size */
+    }
+
+    button,
+    .generate-otp {
+        padding: 8px; /* Adjust button padding */
+        font-size: 14px; /* Smaller button font size */
+    }
+}

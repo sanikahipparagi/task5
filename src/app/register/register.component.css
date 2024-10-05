@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide both horizontal and vertical scrollbars */
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 100px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.left img {
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.right {
+    flex: 1;
+    margin-left: 20px;
+    text-align: left;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-align: center;
+    font-weight: 600;
+    color: #a444d4;
+}
+
+.inline-fields {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-container {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.input-container:last-child {
+    margin-right: 0;
+}
+
+input[type="text"], input[type="email"], input[type="number"], textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: none;
+}
+
+.btn-signup {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    text-decoration: none;
+}
+
+.btn-signup:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.success-message {
+    color: green;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.footer {
+    margin-top: 20px;
+    background-color: white;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack left and right sides */
+        padding: 20px; /* Adjust padding */
+        margin: 50px auto; /* Adjust margin */
+    }
+
+    .left {
+        display: flex;
+        justify-content: center; /* Center image on smaller screens */
+        margin-bottom: 20px; /* Add margin below image */
+    }
+
+    .left img {
+        max-width: 100%; /* Allow image to scale down */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .right {
+        margin-left: 0; /* Remove left margin */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Adjust heading size */
+    }
+
+    .inline-fields {
+        flex-direction: column; /* Stack inline fields vertically */
+    }
+
+    .input-container {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Add margin below input fields */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2em; /* Smaller heading on very small screens */
+    }
+
+    input[type="text"], input[type="email"], input[type="number"], textarea {
+        font-size: 14px; /* Adjust font size for inputs */
+    }
+
+    .btn-signup {
+        font-size: 14px; /* Adjust button font size */
+    }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Details</title>
+</head>
+<body>
+    <div class="invoice-container" *ngIf="invoice">
+        <h1 class="invoice-title">
+            <img src="https://cdn-icons-png.freepik.com/256/6296/6296190.png?ga=GA1.1.220281481.1727174900&semt=ais_hybrid" alt="Invoice Icon" class="invoice-icon">
+            Invoice Details
+        </h1>
+
+        <div class="invoice-details">
+            <p><strong>Invoice ID:</strong> {{ invoice.billId }}</p>
+            <p><strong>Meter Number:</strong> {{ invoice.meterNumber }}</p>
+            <p><strong>Month of the Bill:</strong> {{ invoice.monthOfTheBill }}</p>
+            <p><strong>Due Date:</strong> {{ invoice.dueDate }}</p>
+            <p><strong>Amount:</strong> ₹{{ invoice.amount }}</p>
+            <p><strong>Discount:</strong> ₹{{ invoice.discount }}</p>
+            <p><strong>Unit Consumption:</strong> {{ invoice.unitConsumption }} kWh</p>
+            <p><strong>Payment Status:</strong> <span [ngClass]="{'paid': invoice.paymentStatus === 'Paid', 'unpaid': invoice.paymentStatus === 'Unpaid'}">{{ invoice.paymentStatus }}</span></p>
+        </div>
+    </div>
+</body>
+</html>

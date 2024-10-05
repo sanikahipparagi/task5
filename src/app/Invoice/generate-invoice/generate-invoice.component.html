@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Invoice Upload</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Bulk Invoice Upload</h1>
+        <div class="content-wrapper">
+            <div class="image-container">
+                <img src="https://img.freepik.com/free-vector/invoice-concept-illustration-laptop-with-hands-documents-money_613284-906.jpg?t=st=1728122831~exp=1728126431~hmac=2a1478eddc197d95519e49a869f69fceffbdb6108d7c90505976ef4b59540130&w=740" alt="Invoice" />
+            </div>
+
+            <div class="upload-container">
+                <h2>Upload Excel File</h2>
+                <form [formGroup]="fileUploadForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <!-- File input for selecting Excel/CSV files -->
+                        <input type="file" accept=".xlsx, .xls, .csv" (change)="onFileSelect($event)" />
+                        <!-- Show error message if file upload fails -->
+                        <div *ngIf="uploadError" class="error-message">{{ uploadError }}</div>
+                    </div>
+
+                    <!-- Submit button is disabled when form is invalid -->
+                    <button type="submit" class="submit-btn" [disabled]="fileUploadForm.invalid">Submit</button>
+                </form>
+
+                <!-- Display success or error messages -->
+                <!-- <ng-container *ngIf="uploadSuccess || uploadError">
+                    <div class="breadcrumb">
+                        <span *ngIf="uploadSuccess" class="success">Upload successful!</span>
+                        <span *ngIf="uploadError" class="error">{{ uploadError }}</span>
+                    </div>
+                </ng-container> -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    /* background-color: #f9f9f9; */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Container for the form and image */
+  .container {
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 130px;
+    overflow: hidden;
+  }
+  
+  /* Title styles */
+  .container h1 {
+    text-align: center;
+    color: #9630a1;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  /* Wrapper to arrange image and form side by side */
+  .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .notification {
+    padding: 15px;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .success {
+    color: #4caf50;
+    font-weight: 600;
+  }
+  
+  .error {
+    color: #f44336;
+    font-weight: 600;
+  }
+  
+  /* Image container styles */
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form container styles */
+  .form-container {
+    flex: 1;
+    margin-left: 30px;
+  }
+  
+  /* Styling each form group */
+  .form-group {
+    margin-bottom: 20px;
+    
+  }
+  
+  .form-group label {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .form-group input {
+    background-color: rgb(247, 236, 236);
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .form-group input:focus {
+    border-color: #6200ea;
+    outline: none;
+    box-shadow: 0 0 5px rgba(98, 0, 234, 0.2);
+  }
+  
+  /* Error message styling */
+  .error-message {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 5px;
+  }
+  
+  /* Submit button styling */
+  .submit-btn {
+    background-color: #6200ea;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #3700b3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .content-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .form-container {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  
+    .image-container {
+      margin-bottom: 20px;
+    }
+  }
+  
+  
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .image-container {
+        margin-bottom: 20px;
+        width: 100%; /* Ensuring image container takes full width */
+    }
+
+    .image-container img {
+        max-width: 80%; /* Adjusting image size */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px; /* Reduce padding for smaller devices */
+    }
+
+    .container h1 {
+        font-size: 1.5rem; /* Smaller title size */
+    }
+
+    .form-group label {
+        font-size: 1rem; /* Smaller label size */
+    }
+
+    .submit-btn {
+        padding: 10px; /* Adjust button padding */
+    }
+}
+
+@media (max-width: 375px) {
+  .container {
+      padding: 10px; /* Further reduced padding */
+  }
+
+  .container h1 {
+      font-size: 1.5rem; /* Smaller title size */
+  }
+
+  .form-group label {
+      font-size: 0.85rem; /* Smaller label size */
+  }
+
+  .form-group input {
+      padding: 10px; /* Adjust input padding for smaller screens */
+  }
+
+  .submit-btn {
+      padding: 10px; /* Adjust button padding for smaller screens */
+  }
+}

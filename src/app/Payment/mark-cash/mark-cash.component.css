@@ -1,0 +1,149 @@
+/* Main container styling */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Heading styling */
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #7c148f;
+    margin-bottom: 20px;
+}
+
+/* Payment icon styling */
+.payment-icon {
+    width: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Table styling */
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table header styling */
+.payment-table thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.payment-table th, .payment-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+  .paid {
+    background-color: #d4edda; /* Light green background for paid transactions */
+  }
+  
+  .status-indicator {
+    color: green;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+
+/* Hover effect for table rows */
+.payment-table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Button styling */
+.mark-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.mark-btn:hover {
+    background-color: #45a049;
+}
+
+.disabled {
+    background-color: #b69999; /* Grey background when disabled */
+    /* color: white; */
+    cursor: not-allowed; /* Show not-allowed cursor */
+  }
+  
+  .disabled-btn:hover {
+    background-color: #972020; /* No hover effect when disabled */
+  }
+  
+
+  .pagination {
+    margin-top: 20px;
+    justify-content: center;
+    
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: green;
+    color: white;
+  }
+  
+  .active-page {
+    background-color: #466a90; /* Blue background for active page */
+    color: white;
+    border-radius: 5px; /* Rounded corners for active page */
+  }
+  @media (max-width: 1200px) {
+    .container {
+        padding: 15px; /* Adjust padding for medium screens */
+    }
+
+    h1 {
+        font-size: 2em; /* Slightly smaller heading */
+    }
+
+    .payment-table th, .payment-table td {
+        padding: 10px; /* Reduced padding for table cells */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px; /* Further reduce padding for smaller screens */
+    }
+
+    h1 {
+        font-size: 1.8em; /* Further reduced heading size */
+    }
+
+    .payment-table th, .payment-table td {
+        padding: 8px; /* Further reduced padding for small devices */
+        font-size: 14px; /* Smaller font size for small devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-table {
+        display: block; /* Block display for smaller screens */
+        overflow-x: auto; /* Allow horizontal scrolling */
+        white-space: nowrap; /* Prevent text wrapping */
+    }
+
+    .payment-table th, .payment-table td {
+        padding: 6px; /* Smaller padding for very small screens */
+        font-size: 12px; /* Even smaller font size for small devices */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Even smaller heading size */
+    }
+
+    .pagination button {
+        padding: 4px 8px; /* Smaller pagination button padding */
+    }
+}

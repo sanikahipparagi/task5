@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="https://img.freepik.com/free-vector/business-people-writing-agreement-shaking-hands-tiny-man-with-magnifying-glass-researching-checklist-document-clipboard-paper-flat-vector-illustration-survey-paperwork-management-concept_74855-21676.jpg?t=st=1728017312~exp=1728020912~hmac=ea0f9678167ec3cd13001e0637915fa74fae04f4d9240e7ed73f25ccea04e3f5&w=900"
+                alt="Register Image">
+        </div>
+        <div class="right">
+            <h1>Sign Up</h1>
+            
+            <form (ngSubmit)="register()" #signupForm="ngForm" novalidate>
+                <div class="form-group">
+                    <!-- First Name and Last Name Side by Side -->
+                    <div class="inline-fields">
+                        <div class="input-container">
+                            <input id="firstName" placeholder="First Name" type="text" [(ngModel)]="employeeData.firstName"
+                                name="firstName" #firstNameField="ngModel" required />
+                            <div *ngIf="firstNameField.touched && firstNameField.invalid" class="error">
+                                First Name is required.
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input id="lastName" placeholder="Last Name" type="text" [(ngModel)]="employeeData.lastName"
+                                name="lastName" #lastNameField="ngModel" required />
+                            <div *ngIf="lastNameField.touched && lastNameField.invalid" class="error">
+                                Last Name is required.
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Email -->
+                    <input id="email" placeholder="Email Address" type="email" [(ngModel)]="employeeData.email"
+                        name="email" #emailField="ngModel" required email />
+                    <div *ngIf="emailField.touched && emailField.invalid" class="error">
+                        <div *ngIf="emailField.errors?.['required']">Email is required.</div>
+                        <div *ngIf="emailField.errors?.['email']">Please enter a valid email address.</div>
+                    </div>
+    
+                    <!-- Phone Number -->
+                    <input id="phoneNumber" placeholder="Phone Number" type="text" [(ngModel)]="employeeData.phNo"
+                name="phoneNumber" #phoneNumberField="ngModel" required 
+                        pattern="^\d{10}$" maxlength="10" minlength="10" />
+                     <div *ngIf="phoneNumberField.touched && phoneNumberField.invalid" class="error">
+                      <div *ngIf="phoneNumberField.errors?.['required']">Phone Number is required.</div>
+                      <div *ngIf="phoneNumberField.errors?.['pattern']">Phone Number must be exactly 10 digits.</div>
+                     </div>
+    
+                    <!-- Address -->
+                    <textarea id="address" placeholder="Address" [(ngModel)]="employeeData.address" name="address"
+                        #addressField="ngModel" required></textarea>
+                    <div *ngIf="addressField.touched && addressField.invalid" class="error">
+                        Address is required.
+                    </div>
+                </div>
+    
+                <button type="submit" class="btn-signup">Sign Up</button>
+            </form>
+    
+            <div class="footer">
+                <a routerLink="/login">Already have an account?</a>
+            </div>
+    
+            <!-- Registration success/error messages -->
+            <div *ngIf="registrationSuccess" class="success-message">Registered successfully! Redirecting to login...</div>
+            <div *ngIf="registrationError" class="error-message">{{ registrationError }}</div>
+        </div>
+    </div>
+</body>
+</html>

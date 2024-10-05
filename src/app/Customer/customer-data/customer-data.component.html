@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Data</title>
+</head>
+<body>
+    <div class="container">
+        <h1>
+          <img src="https://cdn-icons-png.freepik.com/256/3239/3239147.png?ga=GA1.1.220281481.1727174900&semt=ais_hybrid" alt="Customer Icon" class="customer-icon">
+          Customer Data
+        </h1>
+
+        <!-- Search Filter -->
+        <input type="text" placeholder="Search by status (active/inactive)" [(ngModel)]="searchFilter" (input)="searchCustomers()">
+
+        <!-- Customers Table -->
+        <table class="customer-table">
+          <thead>
+            <tr>
+              <th>Customer ID</th>
+              <th>Name</th>
+              <th>Wallet</th>
+              <th>Phone Number</th>
+              <th>Meter Address</th>
+              <th>Address</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of paginatedCustomers">
+              <td>{{ customer.userId }}</td>
+              <td>{{ customer.name }}</td>
+              <td>{{ customer.wallet }}</td>
+              <td>{{ customer.phNo }}</td>
+              <td>{{ customer.meterNumber }}</td>
+              <td>{{ customer.address }}</td>
+              <td class="actions">
+                <button (click)="updateCustomer(customer)" class="action-btn">
+                  <img src="https://cdn-icons-png.freepik.com/256/5334/5334827.png?ga=GA1.1.220281481.1727174900&semt=ais_hybrid" alt="Update Icon">
+                </button>
+                <button (click)="deleteCustomer(customer.userId)" class="action-btn">
+                  <img src="https://cdn-icons-png.freepik.com/256/10336/10336397.png?ga=GA1.1.220281481.1727174900&semt=ais_hybrid" alt="Delete Icon">
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <!-- Pagination Controls -->
+        <div class="pagination">
+            <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1"><<</button>
+            <span class="page-numbers">
+              <button *ngFor="let page of [].constructor(totalPages); let i = index" 
+                      (click)="changePage(i + 1)" 
+                      [class.active]="currentPage === i + 1">
+                {{ i + 1 }}
+              </button>
+            </span>
+            <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">>></button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .profile-section, .wallet-section {
+    display: flex;
+    align-items: flex-start; /* Align items to top */
+    margin-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+  }
+  
+  .profile-image img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin-top: 80px;
+    top: 0;
+    left: 0;
+  }
+  
+  .wallet-image img {
+    border-radius: 10px;
+    width: 200px;
+    height: 150px;
+    margin-top: 50px;
+  }
+  
+  .profile-details, .wallet-details {
+    margin-left: 40px;
+    width: 100%;
+  }
+  
+  .inline-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .inline-group div {
+    width: 48%; /* Ensure the two inputs take up space equally */
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    color: black;
+  }
+  
+  .edit-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .edit-button:hover {
+    background-color: #45a049;
+  }
+  
+  @media (max-width: 768px) {
+    .profile-section, .wallet-section {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .profile-image img {
+        margin-top: 20px; /* Adjust margin for smaller screens */
+    }
+
+    .wallet-image img {
+        margin-top: 20px; /* Adjust margin for smaller screens */
+    }
+
+    .profile-details, .wallet-details {
+        margin-left: 0; /* Remove left margin for smaller screens */
+        width: 100%; /* Full width */
+        text-align: center; /* Center text */
+        margin-top: 20px; /* Add margin above details */
+    }
+
+    .inline-group {
+        flex-direction: column; /* Stack inline fields vertically */
+        width: 100%; /* Full width */
+    }
+
+    .inline-group div {
+        width: 100%; /* Full width for each input field */
+        margin-bottom: 10px; /* Add margin between fields */
+    }
+}
+
+@media (max-width: 480px) {
+    .edit-button {
+        padding: 8px; /* Smaller button padding */
+        font-size: 14px; /* Smaller button font size */
+    }
+
+    input {
+        font-size: 14px; /* Smaller input font size */
+    }
+}

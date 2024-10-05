@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Manual Customer Bill Entry</h1>
+
+        <div class="notification" *ngIf="notificationMessage" [ngClass]="{ 'success': isSuccess, 'error': !isSuccess }">
+            {{ notificationMessage }}
+        </div>
+      
+        <div class="content-wrapper">
+          <!-- Image on the Left -->
+          <div class="image-container">
+            <img
+              src="https://img.freepik.com/free-vector/hand-drawn-essay-illustration_23-2150268421.jpg?t=st=1728114050~exp=1728117650~hmac=19256a489ccd2b0f67d825b46f419f39f5c0c64c84b347b2adf7f814f2fc9495&w=740"
+              alt="Customer Bill Image"
+            />
+          </div>
+      
+          <!-- Form on the Right -->
+          <div class="form-container">
+            <form [formGroup]="billForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="customerId">Customer ID</label>
+                <input type="text" id="customerId" formControlName="customerId" />
+                <div class="error-message" *ngIf="billForm.get('customerId')?.touched && billForm.get('customerId')?.invalid">
+                  Customer ID is required
+                </div>
+              </div>
+      
+              <div class="form-group">
+                <label for="unitConsumption">Unit Consumption</label>
+                <input type="number" id="unitConsumption" formControlName="unitConsumption" />
+                <div class="error-message" *ngIf="billForm.get('unitConsumption')?.touched && billForm.get('unitConsumption')?.invalid">
+                  Unit Consumption must be a valid number
+                </div>
+              </div>
+      
+              <div class="form-group">
+                <label for="billDuration">Bill Duration (YYYY/MM)</label>
+                <input type="text" id="billDuration" formControlName="billDuration" placeholder="YYYY/MM" />
+                <div class="error-message" *ngIf="billForm.get('billDuration')?.touched && billForm.get('billDuration')?.invalid">
+                  Bill Duration must be in format YYYY/MM
+                </div>
+              </div>
+      
+              <div class="form-group">
+                <label for="billDueDate">Bill Due Date (YYYY/MM/DD)</label>
+                <input type="text" id="billDueDate" formControlName="billDueDate" placeholder="YYYY/MM/DD" />
+                <div class="error-message" *ngIf="billForm.get('billDueDate')?.touched && billForm.get('billDueDate')?.invalid">
+                  Bill Due Date must be in format YYYY/MM/DD
+                </div>
+              </div>
+      
+              <button type="submit" class="submit-btn" [disabled]="billForm.invalid">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side"></div>
+        <div class="right-side">
+            <h1>Sign In</h1>
+
+            <!-- Customer ID Section -->
+            <div *ngIf="!otpRequested" class="form-group customer-id-section">
+                <label for="CustomerId">Employee Id</label>
+                <input type="text" id="CustomerId" name="CustomerId" [(ngModel)]="employeeId" required />
+                <div class="error" *ngIf="employeeIdError">{{ employeeIdError }}</div>
+            </div>
+
+            <!-- OTP Section -->
+            <div *ngIf="otpRequested" class="otp-section" id="otpSection">
+                <label for="otp">Enter OTP</label>
+                <div class="otp-box">
+                    <input type="text" maxlength="1" class="otp-input" [(ngModel)]="otp[0]" (keyup)="moveToNext($event, 0)" />
+                    <input type="text" maxlength="1" class="otp-input" [(ngModel)]="otp[1]" (keyup)="moveToNext($event, 1)" />
+                    <input type="text" maxlength="1" class="otp-input" [(ngModel)]="otp[2]" (keyup)="moveToNext($event, 2)" />
+                    <input type="text" maxlength="1" class="otp-input" [(ngModel)]="otp[3]" (keyup)="moveToNext($event, 3)" />
+                    <input type="text" maxlength="1" class="otp-input" [(ngModel)]="otp[4]" (keyup)="moveToNext($event, 4)" />
+                    <input type="text" maxlength="1" class="otp-input" [(ngModel)]="otp[5]" (keyup)="moveToNext($event, 5)" />
+                </div>
+                <div class="error" *ngIf="otpError">OTP is required.</div>
+            </div>
+
+            <!-- OTP sent message -->
+            <div *ngIf="otpMessage" class="otp-message">
+                {{ otpMessage }}
+            </div>
+
+            <!-- Button to Generate OTP -->
+            <div class="button-container">
+                <a class="generate-otp" *ngIf="!otpRequested" (click)="requestOtp()">Generate OTP</a>
+            </div>
+            <button type="submit" (click)="login()">Login</button>
+
+            <!-- Error message on login failure -->
+            <div class="error" *ngIf="loginError">{{ loginError }}</div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <a routerLink="/register">Don't have an account?</a>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
