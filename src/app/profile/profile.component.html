@@ -16,27 +16,27 @@
         <div class="form-group inline-group">
           <div>
             <label for="customerId">Employee ID:</label>
-            <input type="text" id="customerId" [value]="user?.userId" disabled />
+            <input type="text" id="customerId" [value]="user.userId" disabled />
           </div>
           <div>
             <label for="name">Name:</label>
-            <input type="text" id="name" [(ngModel)]="editedUser?.name" [disabled]="!isEditing" />
+            <input type="text" id="name" [(ngModel)]="editedUser.name" [disabled]="!isEditing" />
           </div>
         </div>
         <div class="form-group inline-group">
           <div>
             <label for="phone">Phone Number:</label>
-            <input type="text" id="phone" [(ngModel)]="editedUser?.phNo" [disabled]="!isEditing" />
+            <input type="text" id="phone" [(ngModel)]="editedUser.phNo" [disabled]="!isEditing" />
           </div>
           <div>
             <label for="address">Address:</label>
-            <input type="text" id="address" [(ngModel)]="editedUser?.address" [disabled]="!isEditing" />
+            <input type="text" id="address" [(ngModel)]="editedUser.address" [disabled]="!isEditing" />
           </div>
         </div>
         <div class="form-group inline-group">
           <div>
             <label for="email">Email:</label>
-            <input type="email" id="email" [(ngModel)]="user?.email" disabled />
+            <input type="email" id="email" [(ngModel)]="user.email" disabled />
           </div>
         </div>
         <button type="button" class="edit-button" (click)="editProfile()" *ngIf="!isEditing">Edit Profile</button>

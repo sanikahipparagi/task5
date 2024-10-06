@@ -61,11 +61,9 @@
         <div class="pagination">
           <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1"><<</button>
           <span class="page-numbers">
-              <ng-container *ngIf="totalPages > 0">
-                  <button *ngFor="let page of [].constructor(totalPages); let i = index" 
-                          (click)="changePage(i + 1)" 
-                          [class.active]="currentPage === i + 1">
-                      {{ i + 1 }}
+              <ng-container >
+                  <button >
+                      {{ currentPage }}
                   </button>
               </ng-container>
           </span>

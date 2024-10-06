@@ -27,10 +27,10 @@
       <tbody>
         <tr *ngFor="let transaction of transactions">
           <td>{{ transaction.txnId }}</td>
-          <td>{{ transaction.billId }}</td>
-          <td>{{ transaction.customerId }}</td>
-          <td>{{ transaction.amount | currency }}</td>
-          <td>{{ transaction.paymentMethod }}</td>
+          <td>{{ transaction.bill?.billId }}</td>
+          <td>{{ transaction.bill?.user?.userId }}</td>
+          <td>{{ transaction.bill?.amount | currency }}</td>
+          <td>{{ transaction.bill?.paymentStatus === 'UNPAID' }}</td>
           <td>
             <button *ngIf="transaction.transactionStatus !== 'PAID'" (click)="markAsPaid(transaction.txnId)" class="mark-btn" [disabled]="transaction.isPaid">Mark as Paid</button>
           </td>
@@ -43,10 +43,8 @@
         <button (click)="goToPage(1)" [disabled]="currentPage === 1"><<</button>
         
         <ng-container *ngFor="let page of [].constructor(totalPages); let i = index">
-          <button 
-            (click)="goToPage(i + 1)" 
-            [ngClass]="{'active-page': (i + 1) === currentPage}">
-            {{ i + 1 }}
+          <button>
+            {{ currentPage}}
           </button>
         </ng-container>
     

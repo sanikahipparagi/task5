@@ -1,6 +1,8 @@
+import {Bill} from '../../Invoice/list-invoice/Bill.model';
+
 export interface Transaction {
   txnId: string;                       // Transaction ID
-  billId: string;                      // Bill ID
+  bill?: Bill;                      // Bill ID
   customerId: string;                  // Customer ID
   amount: number;                      // Amount of the transaction
   paymentMethod: string;               // Payment method
