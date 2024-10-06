@@ -56,11 +56,17 @@ export class GenerateInvoiceComponent {
     formData.append('file', file); // Append selected file
 
     const token = this.getToken();
+
     const headers = new HttpHeaders({
-      'Authorization': `${token}` // Attach the token in the Authorization header
+      'Authorization': `Bearer ${token}` // Attach the token in the Authorization header,
     });
 
-    this.http.post('http://localhost:8080/excel/addBulkBillByExcel', formData, { headers }).subscribe(
+    const options = {
+      headers: headers,
+      withCredentials: true // Include this in the options
+    };
+
+    this.http.post('http://localhost:8080/excel/upload/bills', formData,options).subscribe(
       (response) => {
         console.log('Invoices uploaded successfully:', response);
         this.uploadSuccess = true;

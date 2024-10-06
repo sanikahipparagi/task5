@@ -67,10 +67,12 @@ input[type="text"]:focus {
   /* Alternate row colors */
 .customer-table tbody tr:nth-child(odd) {
     background-color: #f9f9f9; /* Light gray for odd rows */
+    color: black;
   }
   
   .customer-table tbody tr:nth-child(even) {
     background-color: #ffffff; /* White for even rows */
+    color: black;
   }
   /* Action buttons */
   .actions {

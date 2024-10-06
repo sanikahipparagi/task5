@@ -38,11 +38,12 @@ h1 {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    color: black;
 }
 
 /* Hover effect for table rows */
 .transaction-table tbody tr:hover {
-    background-color: #f2f2f2;
+    background-color: #cdc5c5;
 }
 
 /* Pagination styles */

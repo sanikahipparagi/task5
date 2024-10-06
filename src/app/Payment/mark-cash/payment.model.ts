@@ -1,10 +1,10 @@
 export interface Transaction {
-    txnId: string;
-    billId: string;
-    customerId: string;
-    amount: number;
-    paymentMethod: 'CASH' | 'CREDIT CARD' | 'WALLET' | 'DEBIT CARD'; // Add other payment methods if needed
-    transactionStatus: 'PENDING' | 'PAID';
-    isPaid?: boolean; // Optional, used to mark if payment is completed
-  }
-  
+  txnId: string;                       // Transaction ID
+  billId: string;                      // Bill ID
+  customerId: string;                  // Customer ID
+  amount: number;                      // Amount of the transaction
+  paymentMethod: string;               // Payment method
+  transactionStatus: string;           // Transaction status
+  isPaid: boolean;                     // Indicates if the transaction is paid
+  updatedAt: Date;                     // Last updated timestamp
+}

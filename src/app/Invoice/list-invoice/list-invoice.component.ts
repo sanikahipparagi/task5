@@ -33,7 +33,14 @@ export class ListInvoiceComponent implements OnInit {
     this.invoiceService.getInvoices().subscribe({
       next: (response) => {
         if (response && Array.isArray(response.data)) {
-          this.invoices = response.data; // Assign fetched invoices to the invoices array
+          // Assign fetched invoices to the invoices array
+          this.invoices = response.data.map((invoice) => {
+            return {
+              ...invoice,
+              monthOfTheBill: new Date(invoice.monthOfTheBill).toLocaleDateString(),  // Formatting monthOfTheBill
+              dueDate: new Date(invoice.dueDate).toLocaleDateString(),  // Formatting dueDate
+            };
+          });
           this.paginateInvoices(); // Paginate the fetched invoices
         } else {
           console.error('Unexpected response format');
@@ -44,6 +51,7 @@ export class ListInvoiceComponent implements OnInit {
       }
     });
   }
+  
 
   // Filter invoices based on search term and paginate
   filterInvoices(): void {

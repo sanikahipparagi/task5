@@ -47,14 +47,16 @@ h1 {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+   
 }
 
 .invoice-table tbody tr:nth-child(even) {
     background-color: #f2f2f2;
+    color: black;
 }
 
 .invoice-table tbody tr:hover {
-    background-color: #eeeaea;
+    background-color: #a6a6a6;
 }
 
 .action-btn {

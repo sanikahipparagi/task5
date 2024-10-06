@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { catchError, throwError } from 'rxjs';
 
@@ -11,11 +11,11 @@ import { catchError, throwError } from 'rxjs';
   templateUrl: './bulk-entry.component.html',
   styleUrls: ['./bulk-entry.component.css']
 })
-export class BulkEntryComponent {
+export class BulkEntryComponent implements OnInit {
   fileUploadForm!: FormGroup;
-  uploadSuccess: string = '';  // Success message
-  uploadError: string = '';    // Error message
-  selectedFile: File | null = null; // The selected file
+  uploadSuccess: string = '';
+  uploadError: string = '';
+  selectedFile: File | null = null;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 
@@ -25,56 +25,71 @@ export class BulkEntryComponent {
     });
   }
 
-  // Method to handle file selection
   onFileSelect(event: any): void {
     const file = event.target.files[0];
-    const validFormats = ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel', 'text/csv', 'application/vnd.ms-excel.sheet.macroEnabled.12'];
+    const validFormats = [
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      'application/vnd.ms-excel',
+      'text/csv'
+    ];
 
-    if (file && validFormats.includes(file.type)) {
-      this.selectedFile = file;
-      this.fileUploadForm.patchValue({ csvFile: file });  // Manually update the form control
-      this.fileUploadForm.get('csvFile')?.updateValueAndValidity();  // Trigger validation
-      this.uploadError = '';  // Clear previous errors
+    console.log('Selected file:', file);
+
+    if (file) {
+      console.log('File type:', file.type);
+      if (validFormats.includes(file.type)) {
+        this.selectedFile = file;
+        this.fileUploadForm.patchValue({ csvFile: file });
+        this.fileUploadForm.get('csvFile')?.updateValueAndValidity();
+        this.uploadError = '';
+      } else {
+        this.selectedFile = null;
+        this.uploadError = 'Invalid file format. Please upload a valid Excel or CSV file.';
+        console.error(this.uploadError);
+      }
     } else {
-      this.selectedFile = null;
-      this.uploadError = 'Invalid file format. Please upload a valid Excel (.xls, .xlsx) or CSV file.';
+      this.uploadError = 'No file selected.';
+      console.error(this.uploadError);
     }
   }
 
-  // Method to handle form submission
   onSubmit(): void {
     if (this.fileUploadForm.valid && this.selectedFile) {
       const formData = new FormData();
       formData.append('file', this.selectedFile);
 
-      this.http.post('http://localhost:8080/excel/upload/users', formData, { withCredentials: true })
-        .pipe(
-          catchError(this.handleError)
-        )
+      console.log('Submitting form data:', formData);
+
+      const options = { withCredentials: true }; 
+
+      this.http.post('http://localhost:8080/excel/upload/users', formData,options)
+        .pipe(catchError(this.handleError))
         .subscribe({
           next: (response: any) => {
+            console.log('Upload response:', response);
             this.uploadSuccess = response.message || 'Upload successful!';
-            this.uploadError = '';  // Clear error message
-            this.fileUploadForm.reset();  // Reset form after successful upload
+            this.uploadError = '';
+            this.fileUploadForm.reset();
             this.selectedFile = null;
           },
           error: (err: any) => {
             this.uploadError = err.message || 'File upload failed.';
-            this.uploadSuccess = '';  // Clear success message
+            this.uploadSuccess = '';
+            console.error('Upload error:', err);
           }
         });
     } else {
       this.uploadError = 'Please select a valid file before submitting.';
+      console.error(this.uploadError);
     }
   }
 
-  // Error handling method
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
-      // Client-side or network error
+      console.error('Client-side error:', error.error.message);
       return throwError(`Error: ${error.error.message}`);
     } else {
-      // Backend error
+      console.error('Server error:', error.status, error.message);
       return throwError(`Server Error: ${error.status}, ${error.message}`);
     }
   }

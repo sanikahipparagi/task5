@@ -21,7 +21,7 @@
             <thead>
                 <tr>
                     <th>Bill ID</th>
-                    <th>Customer Name</th>
+                    <th>Meter Number</th>
                     <th>Unit Consumption</th>
                     <th>Due Date</th>
                     <th>Action</th>
@@ -30,7 +30,7 @@
             <tbody>
                 <tr *ngFor="let invoice of paginatedInvoices">
                     <td>{{ invoice.billId }}</td>
-                    <td>{{ invoice.name }}</td>
+                    <td>{{ invoice.meterNumber }}</td>
                     <td>{{ invoice.unitConsumption }}</td>
                     <td>{{ invoice.dueDate | date }}</td>
                     <td>

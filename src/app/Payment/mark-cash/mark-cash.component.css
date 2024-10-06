@@ -30,13 +30,14 @@ h1 {
 /* Table header styling */
 .payment-table thead {
     background-color: #4CAF50;
-    color: white;
+    color: white !important;
 }
 
 .payment-table th, .payment-table td {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    color: black;
 }
 
   .paid {
@@ -51,7 +52,7 @@ h1 {
 
 /* Hover effect for table rows */
 .payment-table tbody tr:hover {
-    background-color: #f2f2f2;
+    background-color: #c9c4c4;
 }
 
 /* Button styling */
