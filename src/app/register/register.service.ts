@@ -17,10 +17,13 @@ export class RegisterService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization':`Bearer ${token}`
+      'Authorization': `Bearer ${token}`
     });
 
-    return this.http.post(`${this.apiUrl}/signUpUser`, employeeData, { headers });
+    return this.http.post(`${this.apiUrl}/signUpUser`, employeeData, { 
+      headers, 
+      withCredentials: true // Adding withCredentials
+    });
   }
 
   checkEmailExists(email: string): Observable<{ exists: boolean }> {
@@ -28,9 +31,12 @@ export class RegisterService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization':`Bearer ${token}`
+      'Authorization': `Bearer ${token}`
     });
 
-    return this.http.get<{ exists: boolean }>(`${this.apiUrl}/check-email?email=${encodeURIComponent(email)}`,{headers});
+    return this.http.get<{ exists: boolean }>(`${this.apiUrl}/check-email?email=${encodeURIComponent(email)}`, {
+      headers,
+      withCredentials: true // Adding withCredentials
+    });
   }
 }
