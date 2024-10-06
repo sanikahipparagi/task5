@@ -32,7 +32,7 @@ export class MarkCashComponent implements OnInit {
         (response: ApiResponse<Transaction[]>) => {
             if (response && Array.isArray(response.data)) {
                 this.transactions = response.data; // Set the transactions from the response
-                this.totalPages = Number(response.totalPages); // Ensure totalPages is a number
+                // this.totalPages = Number(response.message); // Ensure totalPages is a number
             } else {
                 console.error('Invalid response data:', response);
                 this.transactions = []; // Reset transactions in case of error
