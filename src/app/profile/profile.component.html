@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile</title>
 </head>
 <body>
 <div class="profile-container">
@@ -12,7 +12,7 @@
       <img src="https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg" alt="Profile Image" />
     </div>
     <div class="profile-details">
-      <form>
+      <form (ngSubmit)="updateProfile()"> <!-- Submit the form on save -->
         <div class="form-group inline-group">
           <div>
             <label for="customerId">Employee ID:</label>
@@ -20,33 +20,30 @@
           </div>
           <div>
             <label for="name">Name:</label>
-            <input type="text" id="name" [(ngModel)]="editedUser.name" [disabled]="!isEditing" />
+            <input type="text" id="name" [(ngModel)]="editedUser.name" name="name" [disabled]="!isEditing" required />
           </div>
         </div>
         <div class="form-group inline-group">
           <div>
             <label for="phone">Phone Number:</label>
-            <input type="text" id="phone" [(ngModel)]="editedUser.phNo" [disabled]="!isEditing" />
+            <input type="text" id="phone" [(ngModel)]="editedUser.phNo" name="phone" [disabled]="!isEditing" required />
           </div>
           <div>
             <label for="address">Address:</label>
-            <input type="text" id="address" [(ngModel)]="editedUser.address" [disabled]="!isEditing" />
+            <input type="text" id="address" [(ngModel)]="editedUser.address" name="address" [disabled]="!isEditing" required />
           </div>
         </div>
         <div class="form-group inline-group">
           <div>
             <label for="email">Email:</label>
-            <input type="email" id="email" [(ngModel)]="user.email" disabled />
+            <input type="email" id="email" [(ngModel)]="user.email" name="email" disabled />
           </div>
         </div>
         <button type="button" class="edit-button" (click)="editProfile()" *ngIf="!isEditing">Edit Profile</button>
-        <button type="button" class="save-button" (click)="updateProfile()" *ngIf="isEditing">Save Changes</button>
+        <button type="submit" class="save-button" *ngIf="isEditing">Save Changes</button> <!-- Change to submit button -->
       </form>
     </div>
   </div>
 </div>
-
-
-      
 </body>
 </html>
