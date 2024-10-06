@@ -47,7 +47,7 @@ export class BulkEntryComponent {
       const formData = new FormData();
       formData.append('file', this.selectedFile);
 
-      this.http.post('http://localhost:8080/excel/upload', formData, { withCredentials: true })
+      this.http.post('http://localhost:8080/excel/upload/users', formData, { withCredentials: true })
         .pipe(
           catchError(this.handleError)
         )
