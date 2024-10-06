@@ -25,9 +25,9 @@
           <tbody>
             <tr *ngFor="let transaction of paginatedTransactions">
               <td>{{ transaction.txnId }}</td>
-              <td>{{ transaction.billId }}</td>
-              <td>{{ transaction.dueDate | date }}</td>
-              <td>{{ transaction.amount }}</td>
+              <td>{{ transaction.bill.billId }}</td>
+              <td>{{ transaction.bill.dueDate| date }}</td>
+              <td>{{ transaction.bill.amount }}</td>
               <td>{{ transaction.paymentMethod }}</td>
             </tr>
           </tbody>
