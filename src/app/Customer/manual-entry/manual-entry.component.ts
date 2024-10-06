@@ -1,19 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import {CustomerService} from './customer.service';
+import { CustomerService } from './customer.service';
 import { HttpClientModule } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-manual-entry',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,CommonModule,HttpClientModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, HttpClientModule],
   providers: [CustomerService],
   templateUrl: './manual-entry.component.html',
   styleUrl: './manual-entry.component.css'
 })
-export class ManualEntryComponent implements OnInit  {
+export class ManualEntryComponent implements OnInit {
 
   billForm: FormGroup;
   notificationMessage: string = '';
@@ -33,6 +32,8 @@ export class ManualEntryComponent implements OnInit  {
   // Custom validator to check valid month
   validMonth(control: any) {
     const value = control.value;
+    if (!value) return { invalidMonth: true };  // Check for null or undefined
+
     const monthMatch = value.match(/^\d{4}\/(\d{2})$/);
     if (monthMatch) {
       const month = parseInt(monthMatch[1], 10);
@@ -44,6 +45,8 @@ export class ManualEntryComponent implements OnInit  {
   // Custom validator to check valid date
   validDate(control: any) {
     const value = control.value;
+    if (!value) return { invalidDate: true };  // Check for null or undefined
+
     const dateMatch = value.match(/^(\d{4})\/(\d{2})\/(\d{2})$/);
     if (dateMatch) {
       const year = parseInt(dateMatch[1], 10);
@@ -73,18 +76,22 @@ export class ManualEntryComponent implements OnInit  {
       const billData = {
         userId: this.billForm.value.customerId,
         unitConsumption: this.billForm.value.unitConsumption,
-        monthOfTheBill: this.billForm.value.billDuration, // Ensure this is formatted correctly for your backend
-        dueDate: this.billForm.value.billDueDate,
+        monthOfTheBill: this.billForm.value.billDuration.replace(/\//g,'-'), // Ensure this is formatted correctly for your backend
+        dueDate: this.billForm.value.billDueDate.replace(/\//g,'-'),
       };
+
+      console.log('Bill Data to Submit:', billData); 
 
       this.customerService.saveCustomerData(billData) // Use the service to save data
         .subscribe({
           next: (response: any) => {
+            console.log('Response from Backend:', response);
             this.isSuccess = true;
             this.notificationMessage = 'Bill submitted successfully!';
             this.billForm.reset(); // Reset form after submission
           },
           error: (err: any) => {
+            console.error('Error from Backend:', err);
             this.isSuccess = false;
             this.notificationMessage = `Error saving bill data: ${err}`;
           },

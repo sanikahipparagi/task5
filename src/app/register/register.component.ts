@@ -19,7 +19,7 @@ export class RegisterComponent {
   employeeData: RegisterDTO = {
     firstName:'',
     lastName:'',
-    name: '', // This will hold the concatenated name
+    name: '', 
     email: '',
     phNo: '',
     address: ''
@@ -57,7 +57,7 @@ export class RegisterComponent {
               next: (response) => {
                 console.log('Registration successful:', response);
                 this.registrationSuccess = true;
-                this.router.navigate(['/login']); // Redirect to the login page
+                this.router.navigate(['/profile']); // Redirect to the login page
               },
               error: (err) => {
                 console.error('Registration error:', err);

@@ -13,14 +13,24 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   registerEmployee(employeeData: RegisterDTO): Observable<any> {
+    const token = localStorage.getItem('adminToken');
+
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization':`Bearer ${token}`
     });
 
     return this.http.post(`${this.apiUrl}/signUpUser`, employeeData, { headers });
   }
 
   checkEmailExists(email: string): Observable<{ exists: boolean }> {
-    return this.http.get<{ exists: boolean }>(`${this.apiUrl}/check-email?email=${encodeURIComponent(email)}`);
+    const token = localStorage.getItem('adminToken');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':`Bearer ${token}`
+    });
+
+    return this.http.get<{ exists: boolean }>(`${this.apiUrl}/check-email?email=${encodeURIComponent(email)}`,{headers});
   }
 }
