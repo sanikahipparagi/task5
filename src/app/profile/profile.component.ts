@@ -14,8 +14,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
 
-  user: User | null = null; // Original user data
-  editedUser: User | null = null; // For editing
+  user !: User; // Original user data
+  editedUser !: User ; // For editing
   isEditing: boolean = false;
 
   constructor(private profileService: ProfileService, private router: Router) {}
