@@ -3,9 +3,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {PaymentService} from './payment.service';
 
+interface User {
+  userId : string
+}
+
+interface Bill{
+  billId : string;
+  user : User;
+  amount : number;
+  dueDate : Date;
+}
+
 interface Transaction {
   txnId: string;
-  billId: string;
+  bill: Bill;
   dueDate: Date;
   amount: number;
   paymentMethod: string;
