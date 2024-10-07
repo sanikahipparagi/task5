@@ -12,7 +12,7 @@
       <img src="https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg" alt="Profile Image" />
     </div>
     <div class="profile-details">
-      <form (ngSubmit)="updateProfile()"> <!-- Submit the form on save -->
+      <form (ngSubmit)="updateProfile()"> 
         <div class="form-group inline-group">
           <div>
             <label for="customerId">Employee ID:</label>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <button type="button" class="edit-button" (click)="editProfile()" *ngIf="!isEditing">Edit Profile</button>
-        <button type="submit" class="save-button" *ngIf="isEditing">Save Changes</button> <!-- Change to submit button -->
+        <button type="submit" class="save-button" *ngIf="isEditing">Save Changes</button> 
       </form>
     </div>
   </div>

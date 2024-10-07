@@ -1,12 +1,12 @@
-/* Main container styling */
+
 .container {
     max-width: 1200px;
     margin: 10px auto;
     padding: 20px;
-    /* margin-bottom: 900px; */
+   
   }
   
-  /* Table header styling */
+  
   h1 {
     text-align: center;
     font-size: 2.5em;
@@ -15,7 +15,7 @@
     font-weight: 700;
   }
   
-  /* Customer icon styling */
+  
   .customer-icon {
     width: 40px;
     vertical-align: middle;
@@ -45,14 +45,14 @@ input[type="text"]:focus {
     box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
 }
   
-  /* Table styling */
+  
   .customer-table {
     width: 100%;
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  /* Table header */
+  
   .customer-table thead {
     background-color: #4CAF50;
     color: white;
@@ -63,18 +63,48 @@ input[type="text"]:focus {
     text-align: left;
     border-bottom: 1px solid #ddd;
   }
+
+  .edit-button, .save-button, .send-invoice-btn {
+    margin-top: 20px;
+    padding: 10px; /* Same padding for all buttons */
+    background-color: #4CAF50; /* Green background for edit and save buttons */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-button:hover, .save-button:hover {
+    background-color: #45a049; /* Darker green on hover for edit and save buttons */
+}
+
+/* Styles for the send-invoice button */
+.send-invoice-btn {
+    padding: 10px; /* Adjust padding to match other buttons */
+    background-color: #007bff; /* Set a blue background color */
+    color: white; /* Set text color to white */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Round the corners */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.send-invoice-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
   
-  /* Alternate row colors */
+  
 .customer-table tbody tr:nth-child(odd) {
-    background-color: #f9f9f9; /* Light gray for odd rows */
+    background-color: #f9f9f9; 
     color: black;
   }
   
   .customer-table tbody tr:nth-child(even) {
-    background-color: #ffffff; /* White for even rows */
+    background-color: #ffffff; 
     color: black;
   }
-  /* Action buttons */
+ 
   .actions {
     display: flex;
     gap: 10px;
@@ -86,18 +116,18 @@ input[type="text"]:focus {
     cursor: pointer;
   }
   
-  /* Action icons */
+  
   .action-btn img {
     width: 20px;
     height: 20px;
   }
   
-  /* Hover effect for table rows */
+  
   .customer-table tbody tr:hover {
     background-color: #d2c7c7;
   }
   
-  /* Pagination styles */
+ 
   .pagination {
     display: flex;
     justify-content: center;
@@ -124,7 +154,7 @@ input[type="text"]:focus {
     cursor: not-allowed;
   }
   
-  /* Page number styles */
+  
   .page-numbers {
     display: flex;
   }
@@ -143,54 +173,56 @@ input[type="text"]:focus {
   
   @media (max-width: 1200px) {
     .container {
-        padding: 15px; /* Slightly reduced padding */
+        padding: 15px; 
     }
 }
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 2em; /* Smaller header on medium screens */
+        font-size: 2em; 
     }
 
     .customer-table th,
     .customer-table td {
-        padding: 10px; /* Smaller padding for cells */
-        font-size: 14px; /* Smaller text for better fit */
+        padding: 10px; 
+        font-size: 14px; 
     }
 }
 
 @media (max-width: 600px) {
     h1 {
-        font-size: 1.5em; /* Smaller header on small screens */
+        font-size: 1.5em; 
     }
 
     .customer-table th,
     .customer-table td {
-        padding: 8px; /* Even smaller padding for cells */
-        font-size: 12px; /* Further reduce text size */
+        padding: 8px; 
+        font-size: 12px; 
     }
 }
 
 @media (max-width: 480px) {
     .customer-table {
-        display: block; /* Enable block display for scrolling */
-        overflow-x: auto; /* Allow horizontal scrolling */
-        white-space: nowrap; /* Prevent text wrapping */
+        display: block; 
+        overflow-x: auto; 
+        white-space: nowrap; 
     }
 
     .customer-table th,
     .customer-table td {
-        padding: 6px; /* Reduce padding for very small screens */
-        font-size: 10px; /* Minimize text size */
+        padding: 6px; 
+        font-size: 10px; 
     }
 
     .actions {
-        flex-direction: column; /* Stack action buttons vertically */
-        align-items: center; /* Center align actions */
+        flex-direction: column; 
+        align-items: center; 
     }
 
+    
+
     .action-btn img {
-        width: 18px; /* Smaller action icons */
-        height: 18px; /* Maintain aspect ratio */
+        width: 18px; 
+        height: 18px; 
     }
 }

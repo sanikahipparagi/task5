@@ -26,6 +26,7 @@
               <th>Meter Address</th>
               <th>Address</th>
               <th>Actions</th>
+              <th>Send Invoice</th> <!-- New column for "Send Invoice" button -->
             </tr>
           </thead>
           <tbody>
@@ -51,6 +52,11 @@
                   </button>
                   <button (click)="cancelEdit()" *ngIf="editingCustomerId === customer.userId" class="action-btn">
                       <img src="https://cdn-icons-png.freepik.com/256/4018/4018855.png?ga=GA1.1.220281481.1727174900&semt=ais_hybrid" alt="Cancel Icon">
+                  </button>
+              </td>
+              <td> <!-- New cell for "Send Invoice" button -->
+                  <button (click)="sendInvoice(customer.userId)" class="action-btn">
+                      <img src="https://cdn-icons-png.flaticon.com/256/3472/3472620.png" alt="Send Invoice Icon">
                   </button>
               </td>
           </tr>

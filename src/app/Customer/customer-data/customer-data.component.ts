@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [CommonModule, FormsModule, HttpClientModule],
   providers: [CustomerDataService],
   templateUrl: './customer-data.component.html',
-  styleUrls: ['./customer-data.component.css'] // Fixed styleUrl to styleUrls
+  styleUrls: ['./customer-data.component.css'] 
 })
 export class CustomerDataComponent implements OnInit {
   private allCustomers: User[] = []; 
@@ -23,7 +23,7 @@ export class CustomerDataComponent implements OnInit {
   isActiveFilter: boolean = true;
 
   editingCustomerId: string | null = null;
-  editingCustomer: User | null = null; // To hold the customer data being edited
+  editingCustomer: User | null = null; 
 
   constructor(private customerService: CustomerDataService) {}
 
@@ -63,8 +63,8 @@ export class CustomerDataComponent implements OnInit {
   }
 
   editCustomer(customerId: string): void {
-    this.editingCustomerId = customerId; // Set the customer ID being edited
-    this.editingCustomer = this.paginatedCustomers.find(customer => customer.userId === customerId) || null; // Get the customer data for editing
+    this.editingCustomerId = customerId; 
+    this.editingCustomer = this.paginatedCustomers.find(customer => customer.userId === customerId) || null; 
   }
 
   updateCustomer(): void {
@@ -73,9 +73,9 @@ export class CustomerDataComponent implements OnInit {
         next: (response) => {
           console.log('Update response:', response);
           alert('Customer updated successfully');
-          this.editingCustomerId = null; // Clear the editing state
-          this.editingCustomer = null; // Clear the editing customer
-          this.fetchCustomers(this.currentPage - 1, this.pageSize); // Refresh customers after update
+          this.editingCustomerId = null; 
+          this.editingCustomer = null; 
+          this.fetchCustomers(this.currentPage - 1, this.pageSize); 
         },
         error: (error) => {
           console.error('Error updating customer:', error);
@@ -85,7 +85,23 @@ export class CustomerDataComponent implements OnInit {
   }
 
   cancelEdit(): void {
-    this.editingCustomerId = null; // Clear the editing state
-    this.editingCustomer = null; // Clear the editing customer
+    this.editingCustomerId = null; 
+    this.editingCustomer = null; 
+  }
+
+  sendInvoice(userId: string): void {
+    const customer = this.paginatedCustomers.find(c => c.userId === userId);
+    if (customer) {
+      this.customerService.sendEmailInvoice(customer).subscribe(
+        response => {
+          alert('Invoice sent successfully');
+          console.log('Email sent response:', response);
+        },
+        error => {
+          console.error('Error sending invoice:', error);
+          alert('Error sending invoice');
+        }
+      );
+    }
   }
 }

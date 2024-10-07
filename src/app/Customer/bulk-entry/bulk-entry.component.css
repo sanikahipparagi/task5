@@ -1,11 +1,9 @@
-/* Main container styling */
 .container {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
 }
 
-/* Heading styling */
 h1 {
     text-align: center;
     font-size: 2.5em;
@@ -14,7 +12,7 @@ h1 {
     font-weight: 700;
 }
 
-/* Content wrapper styling */
+
 .content-wrapper {
     display: flex;
     justify-content: space-between;
@@ -25,18 +23,18 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Image container styling */
+
 .image-container {
     flex: 1;
 }
 
 .image-container img {
-    max-width: 80%; /* Make the image smaller */
+    max-width: 80%; 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Upload container styling */
+
 .upload-container {
     flex: 1;
     padding: 20px;
@@ -49,7 +47,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Form group styling */
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -81,14 +79,14 @@ h1 {
     background-color: #45a049;
 }
 
-/* Error message styling */
+
 .error-message {
     color: red;
     font-size: 0.9em;
     margin-top: 5px;
 }
 
-/* Breadcrumb success/error message styling */
+
 .breadcrumb {
     margin-top: 20px;
     padding: 10px;
@@ -106,7 +104,7 @@ h1 {
     color: white;
 }
 
-/* Status breadcrumbs styling */
+
 .status-breadcrumbs {
     list-style: none;
     padding: 0;
@@ -129,7 +127,7 @@ h1 {
     margin-left: 5px;
 }
 
-/* Media queries for responsiveness */
+
 @media (max-width: 768px) {
     .content-wrapper {
         flex-direction: column;

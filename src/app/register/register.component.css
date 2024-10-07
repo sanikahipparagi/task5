@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    box-sizing: border-box; 
 }
 
 
@@ -9,7 +9,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Hide both horizontal and vertical scrollbars */
+    overflow: hidden; 
 }
 
 
@@ -122,50 +122,50 @@ textarea {
 
 @media (max-width: 768px) {
     .container {
-        flex-direction: column; /* Stack left and right sides */
-        padding: 20px; /* Adjust padding */
-        margin: 50px auto; /* Adjust margin */
+        flex-direction: column; 
+        padding: 20px; 
+        margin: 50px auto; 
     }
 
     .left {
         display: flex;
-        justify-content: center; /* Center image on smaller screens */
-        margin-bottom: 20px; /* Add margin below image */
+        justify-content: center; 
+        margin-bottom: 20px; 
     }
 
     .left img {
-        max-width: 100%; /* Allow image to scale down */
-        height: auto; /* Maintain aspect ratio */
+        max-width: 100%; 
+        height: auto; 
     }
 
     .right {
-        margin-left: 0; /* Remove left margin */
+        margin-left: 0; 
     }
 
     h1 {
-        font-size: 1.5em; /* Adjust heading size */
+        font-size: 1.5em; 
     }
 
     .inline-fields {
-        flex-direction: column; /* Stack inline fields vertically */
+        flex-direction: column; 
     }
 
     .input-container {
-        margin-right: 0; /* Remove right margin */
-        margin-bottom: 10px; /* Add margin below input fields */
+        margin-right: 0; 
+        margin-bottom: 10px; 
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 1.2em; /* Smaller heading on very small screens */
+        font-size: 1.2em; 
     }
 
     input[type="text"], input[type="email"], input[type="number"], textarea {
-        font-size: 14px; /* Adjust font size for inputs */
+        font-size: 14px; 
     }
 
     .btn-signup {
-        font-size: 14px; /* Adjust button font size */
+        font-size: 14px; 
     }
 }

@@ -8,11 +8,11 @@ import { Page } from './Page.model';
   providedIn: 'root'
 })
 export class CustomerDataService {
-  private apiUrl = `http://localhost:8080/employee`; // Assuming 'apiUrl' is your backend URL
+  private apiUrl = `http://localhost:8080/employee`; 
 
   constructor(private http: HttpClient) {}
 
-  // Fetch customers with pagination
+  
   getCustomers(page: number, size: number): Observable<Page<User[]>> {
     const headers = new HttpHeaders({
       'Authorization': localStorage.getItem('token') || ''
@@ -20,11 +20,11 @@ export class CustomerDataService {
 
     return this.http.get<Page<User[]>>(
       `${this.apiUrl}/getCustomers?page=${page}&size=${size}`,
-      { headers, withCredentials: true } // Include withCredentials
+      { headers, withCredentials: true } 
     );
   }
 
-  // Search customers based on filters
+ 
   searchCustomersByFilter(isActiveStatus: boolean, page: number, size: number): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': localStorage.getItem('token') || ''
@@ -32,20 +32,33 @@ export class CustomerDataService {
 
     return this.http.get(
       `${this.apiUrl}/getCustomersByFilter?isActiveStatus=${isActiveStatus}&page=${page}&size=${size}`,
-      { headers, withCredentials: true } // Include withCredentials
+      { headers, withCredentials: true } 
     );
   }
 
-  // Update a customer
+  
   updateCustomer(customer: User): Observable<any> {
     const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('token') || ''
+    });
+  
+    return this.http.post(
+      `${this.apiUrl}/updateCustomer/${customer.userId}`,
+      customer,
+      { headers, withCredentials: true } 
+    );
+  }
+
+  sendEmailInvoice(customer:User):Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
       'Authorization': localStorage.getItem('token') || ''
     });
 
-    return this.http.post(
-      `${this.apiUrl}/update`,
-      customer,
-      { headers, withCredentials: true } // Include withCredentials
-    ); // Assuming endpoint is set up on backend
-  }  
+    return this.http.get(
+      `http://localhost:8080/invoice/sendInvoiceEmail/${customer.userId}`,
+      { headers, withCredentials: true } 
+    );
+  }
 }

@@ -9,26 +9,26 @@
   <div class="container">
     <h1>Bulk Entry Upload</h1>
     <div class="content-wrapper">
-        <!-- Image on the left -->
+        
         <div class="image-container">
             <img src="https://img.freepik.com/free-vector/download-concept-illustration_114360-3911.jpg?t=st=1728120297~exp=1728123897~hmac=1d88fda4be55427c02282f24a68a32121f6f37b19c2baa038c107007c5854ac2&w=740" alt="Upload Illustration">
         </div>
 
-        <!-- Form on the right -->
+        
         <div class="upload-container">
             <h2>Upload Excel File</h2>
             <form [formGroup]="fileUploadForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <input type="file" accept=".xlsx, .xls, .csv" (change)="onFileSelect($event)" />
-                    <!-- Display error message when file selection is invalid -->
+                    
                     <div *ngIf="uploadError" class="error-message">{{ uploadError }}</div>
                 </div>
 
-                <!-- Submit button (disabled if form is invalid or no file is selected) -->
+              
                 <button type="submit" class="submit-btn" [disabled]="fileUploadForm.invalid || !selectedFile">Submit</button>
             </form>
 
-            <!-- Success and Error messages display below the form -->
+           
             <div *ngIf="uploadSuccess" class="success">{{ uploadSuccess }}</div>
             <div *ngIf="uploadError" class="error">{{ uploadError }}</div>
         </div>

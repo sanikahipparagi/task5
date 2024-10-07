@@ -90,46 +90,60 @@
   .edit-button:hover {
     background-color: #45a049;
   }
+  .save-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
   
+  .save-button:hover {
+    background-color: #45a049; 
+  }
+
   @media (max-width: 768px) {
     .profile-section, .wallet-section {
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center; /* Center align items */
+        flex-direction: column; 
+        align-items: center; 
     }
 
     .profile-image img {
-        margin-top: 20px; /* Adjust margin for smaller screens */
+        margin-top: 20px;
     }
 
     .wallet-image img {
-        margin-top: 20px; /* Adjust margin for smaller screens */
+        margin-top: 20px; 
     }
 
     .profile-details, .wallet-details {
-        margin-left: 0; /* Remove left margin for smaller screens */
-        width: 100%; /* Full width */
-        text-align: center; /* Center text */
-        margin-top: 20px; /* Add margin above details */
+        margin-left: 0; 
+        width: 100%; 
+        text-align: center; 
+        margin-top: 20px; 
     }
 
     .inline-group {
-        flex-direction: column; /* Stack inline fields vertically */
-        width: 100%; /* Full width */
+        flex-direction: column; 
+        width: 100%; 
     }
 
     .inline-group div {
-        width: 100%; /* Full width for each input field */
-        margin-bottom: 10px; /* Add margin between fields */
+        width: 100%; 
+        margin-bottom: 10px; 
     }
 }
 
 @media (max-width: 480px) {
     .edit-button {
-        padding: 8px; /* Smaller button padding */
-        font-size: 14px; /* Smaller button font size */
+        padding: 8px; 
+        font-size: 14px; 
     }
 
     input {
-        font-size: 14px; /* Smaller input font size */
+        font-size: 14px; 
     }
 }

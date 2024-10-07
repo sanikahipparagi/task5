@@ -9,13 +9,13 @@ import { ApiResponse } from './ApiResponse.model';
 })
 export class MarkCashService {
 
-  private baseUrl = 'http://localhost:8080/employee'; // Backend URL
+  private baseUrl = 'http://localhost:8080/employee'; 
 
   constructor(private http: HttpClient) {}
 
-  // Method to get transactions with pagination
+  
   getTransactions(page: number, size: number): Observable<ApiResponse<Transaction[]>> {
-    const token = this.getToken(); // Method to get the Bearer token
+    const token = this.getToken(); 
     
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
@@ -28,19 +28,19 @@ export class MarkCashService {
     });
   }
 
-  // Mark a transaction as paid via cash
+  
   markAsCashPaid(transactionId: string): Observable<Transaction> {
     const token = this.getToken();
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
     
-    // Call the PUT endpoint with the transaction ID
+    
     return this.http.put<Transaction>(`${this.baseUrl}/markCashPayment/${transactionId}`, {}, { headers });
   }
 
-  // Mock method to get the Bearer token (replace with actual implementation)
+  
   private getToken(): string {
-    return localStorage.getItem('authToken') || ''; // Fetch the token from local storage
+    return localStorage.getItem('authToken') || ''; 
   }
 }

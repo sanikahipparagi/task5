@@ -30,11 +30,12 @@
           <td>{{ transaction.bill?.billId }}</td>
           <td>{{ transaction.bill?.user?.userId }}</td>
           <td>{{ transaction.bill?.amount | currency }}</td>
+          <td>{{transaction.paymentMethod}}</td>
           <td>{{ transaction.bill?.paymentStatus === 'UNPAID' }}</td>
           <td>
             <button *ngIf="transaction.transactionStatus !== 'PAID'" (click)="markAsPaid(transaction.txnId)" class="mark-btn" [disabled]="transaction.isPaid">Mark as Paid</button>
           </td>
-          <td><span *ngIf="transaction.transactionStatus === 'PAID'" class="status-indicator">Paid</span></td>
+          <td><span *ngIf="transaction.transactionStatus === 'UNPAID'" class="status-indicator">Paid</span></td>
         </tr>
       </tbody>
     </table>
